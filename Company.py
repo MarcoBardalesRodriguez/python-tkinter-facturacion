@@ -17,15 +17,15 @@ class Company:
         self.view = view_company
 
     def show_company(self):
-        self.view.show('empresa', ['id', 'ruc', 'nombre', 'direccion', 'celular', 'email'])
+        return self.view.show('empresa', ['id', 'ruc', 'nombre', 'direccion', 'celular', 'email'])
 
-    def update_company(self):
-        id = 1
-        ruc = input("ruc: ")
-        name = input("nombre: ")
-        address = input("direccion: ")
-        phone = input("celular: ")
-        email = input("email: ")
+    def update_company(self, id, ruc, name, address, phone, email):
+        # id = 1
+        # ruc = input("ruc: ")
+        # name = input("nombre: ")
+        # address = input("direccion: ")
+        # phone = input("celular: ")
+        # email = input("email: ")
 
         data = [
             {'ruc': ruc, 'nombre': name, 'direccion': address, 'celular': phone, 'email': email}

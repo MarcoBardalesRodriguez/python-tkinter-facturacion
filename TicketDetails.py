@@ -16,31 +16,17 @@ class TicketDetails:
         global view_ticket_details
         self.view = view_ticket_details
 
-    def new_ticket_details(self):
-        data = []
-        while True:
-            ticket_id = input("ticket_id: ")
-            product_id = input("product_id: ")
-            quantity = input("quantity: ")
+    def new_ticket_details(self, details: list[dict]):
+        # details = [{'boleta_id': ticket_id, 'producto_id': product_id, 'cantidad': quantity},
+        #            {'boleta_id': ticket_id, 'producto_id': product_id, 'cantidad': quantity},
+        #            ...]
+        self.view.save('detalle_boleta', details)
 
-            detail = {'boleta_id': ticket_id, 'producto_id': product_id, 'cantidad': quantity}
+    def show_ticket_details(self, id):
+        return self.view.show(id)
 
-            data.append(detail)
-
-            print("[n]-Nuevo Detalle")
-            print("[f]-Finalizar")
-            opt = input(">>> ")
-            if opt == 'f':
-                break
-        self.view.save('detalle_boleta', data)
-
-    def show_ticket_details(self):
-        id = int(input("id: "))
-        self.view.show(id)
-
-    def delete_ticket_details(self):
-        valor = int(input("id: "))
-        id = {'boleta_id': valor}
+    def delete_ticket_details(self, id):
+        # id = {'boleta_id': valor}
         self.view.delete('detalle_boleta', id)
 
     def update_ticket_details(self):

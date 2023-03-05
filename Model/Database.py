@@ -60,7 +60,7 @@ class Database:
             columns_names = ', '.join(columns)
         else:
             columns_names = '*'
-        query = f'SELECT {columns_names} FROM {table} WHERE boleta_id={id}'
+        query = f'SELECT {columns_names} FROM {table} WHERE id={id}'
         res = self.cursor.execute(query)
         return res.fetchall()
 

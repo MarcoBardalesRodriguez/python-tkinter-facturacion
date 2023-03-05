@@ -16,33 +16,20 @@ class Product:
         global view_product
         self.view = view_product
 
-    def new_product(self):
-        name = input("nombre: ")
-        stock = int(input("stock: "))
-        price = float(input("precio: "))
-
-        data = [
-                {'nombre': name, 'stock': stock, 'precio': price}
-            ]
-
+    def new_product(self, data):
+        # data = [{'nombre': name, 'stock': stock, 'precio': price}]
         self.view.save('producto', data)
 
     def show_products(self):
-        self.view.show('producto', ['id', 'nombre', 'stock', 'precio'])
+        return self.view.show('producto', ['id', 'nombre', 'stock', 'precio'])
 
-    def update_product(self):
-        id = int(input("id: "))
-        name = input("nombre: ")
-        stock = int(input("stock: "))
-        price = float(input("precio: "))
+    def show_product(self, id):
+        return self.view.show_one('producto', id, ['id', 'nombre', 'stock', 'precio'])
 
-        data = [
-            {'nombre': name, 'stock': stock, 'precio': price}
-        ]
-
+    def update_product(self, id, data):
+        # data = [{'nombre': name, 'stock': stock, 'precio': price}]
         self.view.update('producto', id, data)
 
-    def delete_product(self):
-        valor = int(input("id: "))
-        id = {'id': valor}
+    def delete_product(self, id):
+        # id = {'id': valor}
         self.view.delete('producto', id)

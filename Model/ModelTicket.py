@@ -8,6 +8,9 @@ class Ticket:
     def show(self, table, columns=None):
         return self.db.select(table, columns)
 
+    def show_one(self, table, id, columns=None):
+        return self.db.select_id(table, id, columns)
+
     def update(self, table, id, data):
         self.db.update(table, id, data)
 

@@ -11,6 +11,10 @@ class Ticket:
         self.view.message("cargando")
         return self.model.show(table, columns)
 
+    def show_one(self, table, id, columns=None):
+        self.view.message("cargando uno")
+        return self.model.show_one(table, id, columns)
+
     def update(self, table, id, data):
         self.model.update(table, id, data)
         self.view.message("actualizado")

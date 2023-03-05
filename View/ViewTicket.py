@@ -12,8 +12,16 @@ class Ticket:
         self._controller.save(table, data)
 
     def show(self, table, columns=None):
-        for row in self._controller.show(table, columns):
+        res = self._controller.show(table, columns)
+        for row in res:
             print(row)
+        return res
+
+    def show_one(self, table, id, columns=None):
+        res = self._controller.show_one(table, id, columns)
+        for row in res:
+            print(row)
+        return res
 
     def update(self, table, id, data):
         self._controller.update(table, id, data)

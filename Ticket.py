@@ -16,35 +16,20 @@ class Ticket:
         global view_ticket
         self.view = view_ticket
 
-    def new_ticket(self):
-        date = input("fecha: ")
-        name = input("nombre: ")
-        address = input("direccion: ")
-        dni = input("dni: ")
-
-        data = [
-                {'fecha': date, 'nombre': name, 'direccion': address, 'dni': dni}
-            ]
-
+    def new_ticket(self, data):
+        # data = [{'fecha': date, 'nombre': name, 'direccion': address, 'dni': dni}]
         self.view.save('boleta', data)
 
     def show_tickets(self):
-        self.view.show('boleta', ['id', 'fecha', 'nombre', 'direccion', 'dni'])
+        return self.view.show('boleta', ['id', 'fecha', 'nombre', 'direccion', 'dni'])
 
-    def update_ticket(self):
-        id = int(input("id: "))
-        date = input("fecha: ")
-        name = input("nombre: ")
-        address = input("direccion: ")
-        dni = input("dni: ")
+    def show_ticket(self, id):
+        return self.view.show_one('boleta', id, ['id', 'fecha', 'nombre', 'direccion', 'dni'])
 
-        data = [
-            {'fecha': date, 'nombre': name, 'direccion': address, 'dni': dni}
-        ]
-
+    def update_ticket(self, id, data):
+        # data = [{'fecha': date, 'nombre': name, 'direccion': address, 'dni': dni}]
         self.view.update('boleta', id, data)
 
-    def delete_ticket(self):
-        valor = int(input("id: "))
-        id = {'id': valor}
+    def delete_ticket(self, id: dict):
+        # id = {'id': valor}
         self.view.delete('boleta', id)

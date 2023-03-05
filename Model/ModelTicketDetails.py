@@ -10,8 +10,9 @@ class TicketDetails:
         query = f"""
         SELECT
         B.id as boleta,
+        D.cantidad as cantidad,
         P.nombre as producto,
-        D.cantidad as cantidad 
+        P.precio as precio
         FROM boleta B
             JOIN detalle_boleta D on D.boleta_id = B.id
             JOIN producto P on D.producto_id = P.id
